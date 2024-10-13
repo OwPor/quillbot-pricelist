@@ -73,7 +73,7 @@ async function calculatePrices(dates) {
 
         let price;
         if (daysDiff >= 30) {
-            price = (daysDiff * 2.5).toFixed(2) + ' PHP';
+            price = (daysDiff * 2.5).toFixed() + ' PHP';
         } else {
             price = 'Negotiate';
         }
@@ -85,11 +85,12 @@ async function calculatePrices(dates) {
 }
 
 function createTable(data) {
-    let tableHTML = '<table><thead><tr><th>Date</th><th>Days</th><th>Price</th></tr></thead><tbody>';
-
+    let tableHTML = '<table><thead><tr><th>Number</th><th>Date</th><th>Days</th><th>Price</th></tr></thead><tbody>';
+    let index = 1;
     data.forEach(item => {
         const amountClass = item.price.includes('Negotiate') ? 'negotiate' : '';
-        tableHTML += `<tr><td>${item.date}</td><td>${item.daysDiff}</td><td class="${amountClass}">${item.price}</td></tr>`;
+        tableHTML += `<tr><td>${index}</td><td>${item.date}</td><td>${item.daysDiff}</td><td class="${amountClass}">${item.price}</td></tr>`;
+        index++;
     });
 
     tableHTML += '</tbody></table>';

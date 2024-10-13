@@ -45,6 +45,7 @@ tr:hover {
     font-weight: bold;
 }
 
+/* Adjusted width for four columns */
 td {
-    width: 33.33%;
+    width: 25%; /* Each column takes up 25% of the table width */
 }
