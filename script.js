@@ -73,7 +73,8 @@ function createTable(data) {
     let tableHTML = '<table><thead><tr><th>Date</th><th>Days Difference</th><th>Price</th></tr></thead><tbody>';
 
     data.forEach(item => {
-        tableHTML += `<tr><td>${item.date}</td><td>${item.daysDiff}</td><td>${item.price}</td></tr>`;
+        const amountClass = item.price.includes('Negotiate') ? 'negotiate' : '';
+        tableHTML += `<tr><td>${item.date}</td><td>${item.daysDiff}</td><td class="${amountClass}">${item.price}</td></tr>`;
     });
 
     tableHTML += '</tbody></table>';
