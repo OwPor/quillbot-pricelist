@@ -47,9 +47,23 @@ October 16, 2024
 June 06, 2025
 `;
 
-function calculatePrices(dates) {
+async function fetchCurrentDate() {
+    try {
+        const response = await fetch('https://www.worldtimeapi.org/api/timezone/Asia/Manila');
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+        const data = await response.json();
+        return new Date(data.datetime);
+    } catch (error) {
+        alert("An error occurred while fetching the current date.");
+        location.reload();
+    }
+}
+
+async function calculatePrices(dates) {
     const rows = dates.trim().split('\n');
-    const d = new Date();
+    const d = await fetchCurrentDate();
     let results = [];
 
     rows.forEach(dateStr => {
@@ -58,10 +72,11 @@ function calculatePrices(dates) {
         const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
         let price;
-        if (daysDiff >= 30)
+        if (daysDiff >= 30) {
             price = (daysDiff * 2.5).toFixed(2) + ' PHP';
-        else
+        } else {
             price = 'Negotiate';
+        }
 
         results.push({ date: dateStr, daysDiff: daysDiff, price: price });
     });
@@ -81,5 +96,9 @@ function createTable(data) {
     document.getElementById('table-container').innerHTML = tableHTML;
 }
 
-const priceList = calculatePrices(dates);
-createTable(priceList);
+async function displayPrices() {
+    const priceList = await calculatePrices(dates);
+    createTable(priceList);
+}
+
+displayPrices();
