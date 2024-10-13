@@ -85,7 +85,7 @@ async function calculatePrices(dates) {
 }
 
 function createTable(data) {
-    let tableHTML = '<table><thead><tr><th>Date</th><th>Days Difference</th><th>Price</th></tr></thead><tbody>';
+    let tableHTML = '<table><thead><tr><th>Date</th><th>Days</th><th>Price</th></tr></thead><tbody>';
 
     data.forEach(item => {
         const amountClass = item.price.includes('Negotiate') ? 'negotiate' : '';
