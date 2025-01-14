@@ -1,38 +1,31 @@
 const dates = `
-March 20, 2025
+March 27, 2025
 February 11, 2025
-January 15, 2025
-December 29, 2024
-May 09, 2025
 November 07, 2025
 March 22, 2025
-December 08, 2024
+May 09, 2025
+February 08, 2025
 April 03, 2025
 April 19, 2025
-December 30, 2024
+December 30, 2025
 April 06, 2025
-December 29, 2024
 April 05, 2025
 May 03, 2025
-October 12, 2025
-March 19, 2025
-December 20, 2024
-January 08, 2025
+January 20, 2025
 August 11, 2025
 February 22, 2025
-January 11, 2025
-October 30, 2025
+January 11, 2026
 November 26, 2025
 February 12, 2025
-January 01, 2025
+February 01, 2025
 March 17, 2025
-June 06, 2025
 October 16, 2025
-January 06, 2025
-December 30, 2024
+June 06, 2025
+January 30, 2025
 March 24, 2025
 April 16, 2025
 September 12, 2025
+March 07, 2026
 `;
 
 async function fetchCurrentDate() {
